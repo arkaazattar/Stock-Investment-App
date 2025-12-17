@@ -2,7 +2,7 @@
 
 ## Introduction
 
-StockAdvice is a full-stack website that gives buy/sell/hold advice on stocks, ETFs, crypto, and options based on verified online opinions and trend activity.
+StockAdvice is a full-stack web application that gives buy/sell/hold advice on stocks, ETFs, crypto, and options based on verified online opinions and trend activity.
 
 ## Features
 
