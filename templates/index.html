@@ -31,11 +31,4 @@
     </body>
 </html>
 
-<script>
-    const form = document.getElementById("form")
-
-    form.addEventListener("submit", async function(event){
-        event.preventDefault();
-        // console.log("Button Pressed") 
-    })
-</script>
+<script src="{{url_for('static', filename='scripts.js')}}"></script>
