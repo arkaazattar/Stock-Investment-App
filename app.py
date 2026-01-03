@@ -8,4 +8,8 @@ CORS(app)
 def home():
     return render_template("index.html")
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template("3dots.html")
+
 app.run()
