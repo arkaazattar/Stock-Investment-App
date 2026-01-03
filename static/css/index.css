@@ -1,0 +1,39 @@
+.background{
+    background-color: rgb(255, 255, 255);
+    flex: 1;
+}
+
+.header {
+    width: 100%;
+    height: 75px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* will fix later
+.footer{
+    position: flex;
+    bottom: 0;
+    width: 100%;
+    height: 75px;
+    background-color: rgb(212, 212, 212);
+} */
+
+.threedots{
+    width: 45px;
+    top: 3%;
+    left: 96.767%;
+    position: fixed;
+    
+}
+
+.button{
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    
+}
