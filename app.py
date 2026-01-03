@@ -10,6 +10,14 @@ def home():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template("3dots.html")
+    return render_template("dashboard.html")
+
+@app.route("/signup")
+def signup():
+    return render_template("auth/signup.html")
+
+@app.route("/login")
+def login():
+    return render_template("auth/login.html")
 
 app.run()
