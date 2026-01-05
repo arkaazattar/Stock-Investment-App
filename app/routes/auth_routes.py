@@ -1,20 +1,12 @@
 # all of these will be split into routing folders where only the functions are required
 # each file needs the render_template import at minimum
+from flask import render_template
 
-@app.route('/')
-def home():
-    return render_template("index.html")
 
-@app.route('/dashboard')
-def dashboard():
-    return render_template("dashboard.html")
-
-@app.route("/signup")
-def signup():
+def signup_route():
     return render_template("auth/signup.html")
 
-@app.route("/login")
-def login():
+def login_route():
     return render_template("auth/login.html")
 
-app.run()
+
