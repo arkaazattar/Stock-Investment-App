@@ -18,16 +18,24 @@
 form{
     display: grid;
     align-content: center;
+  
+    
+    
 }
 
 .username{
     border-color: lightgrey;
+    
 }
 
 .password{
     border-color: lightgrey;
 }
 
+.checkbox{
+
+    
+}
 
 .background {
     background-color: white;
@@ -55,8 +63,10 @@ button{
 .flex{
     display:flex;
     align-items: center;
+
 }
 
 .moveright{
     margin-left: 50%;
+
 }

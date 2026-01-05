@@ -5,18 +5,51 @@
         <link rel="stylesheet" href="../../static/css/signup.css">
     </head>
 
-    <body>
-        <div class="parent">
-            <form class="box" id="signupForm">
-                <input class = "username" minlength="3" placeholder="Username" name="username" required></input>
-                <br><br>
-                <input class = "password" minlength="5" placeholder="Password" type="PASSWORD" name="password" required ></input>
-                <button type="submit">Submit</button>
-            </form>
-
-        
+    <body class="background">
+        <div class="header">
+            <div class="parent">
+                <div class="box">
+                    <div class="moveright">
+                        <form id="signupForm">
+                            <input class = "username" minlength="3" placeholder="Username" name="username" required></input>
+                            <br>
+                            <input class = "password" minlength="5" placeholder="Password" type="PASSWORD" name="password" required ></input>
+                            <br>
+                            <button type="submit">Submit</button>
+                    </form>
+                    </div>
+               </div>
+            </div>
         </div>
     </body>
 
     <script src="../../static/js/signup.js"></script>
 </html>
+
+<!-- 
+<body class="background">  
+
+        <div class="header">
+            <div class="parent">
+                <div class="box">
+                    <div class="moveright">
+                    <form id="loginForm">
+                        <input class="username" name="username" placeholder="Username" required></input>
+                        <br>
+                        
+                        <input class="password"  name="password" placeholder="Password" type="PASSWORD" required></input>
+                        <br>
+                        <div class="flex">
+                            <input class="checkbox" id="rememberme" type="checkbox" ></input>
+                            <label for="rememberme">Remember Me</label> 
+                            
+                        </div>
+                        <br><button class="button" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+        
+    </body> -->

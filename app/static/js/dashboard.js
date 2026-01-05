@@ -9,6 +9,6 @@ signup.addEventListener("click", function(event){
 
 login.addEventListener("click", function(event){
     event.preventDefault();
-    window.location.href="/signup"
+    window.location.href="/login"
     console.log("button pressed")
 })
