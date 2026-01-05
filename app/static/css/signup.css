@@ -1,0 +1,31 @@
+.parent{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}   
+.box {
+    background-color: darkgray;
+    width: 50%;
+    border-radius: 30px;
+
+}
+
+.form{
+    background-color: aqua;
+
+}
+
+.username{
+    width: 20%;
+    margin-left: 20%;
+}
+
+.password{
+    width: 20%;
+    margin-left: 20%;
+}
+
+button{
+    cursor: pointer;
+}
