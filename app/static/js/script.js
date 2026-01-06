@@ -1,15 +1,13 @@
-    const form = document.getElementById("form");
-    const form2 = document.getElementById("form2");
+    const dashboard = document.getElementById("dashboard");
+    const getstarted = document.getElementById("getstarted");
 
-    form2.addEventListener("submit", async function(event){
+    dashboard.addEventListener("click", async function(event){
         event.preventDefault();
-        console.log("3dots");
-        window.location.href = "/dashboard"
+        window.location.href = "/dashboard";
         
     })
 
-    form.addEventListener("submit", async function(event){
+    getstarted.addEventListener("click", async function(event){
         event.preventDefault();
         window.location.href="/loginsignup"
     })
-    
