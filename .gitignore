@@ -1,4 +1,6 @@
+#virtual envs
 venv/
+stockapp/
 
 __pycache__/
 .dist
@@ -7,3 +9,5 @@ requirements.txt
 
 *.env
 *.sql
+
+flask_session/

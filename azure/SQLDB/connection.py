@@ -6,7 +6,7 @@ load_dotenv()
 
 def get_connection():
     '''
-    Getting connection to Azure MSSQL Server Database 
+    Getting connection to Azure SQL Server Database 
     '''
     return odbc.connect(
         f"""
