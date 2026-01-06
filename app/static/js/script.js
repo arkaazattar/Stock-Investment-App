@@ -10,6 +10,6 @@
 
     form.addEventListener("submit", async function(event){
         event.preventDefault();
-        console.log("Get started");
+        window.location.href="/loginsignup"
     })
     
