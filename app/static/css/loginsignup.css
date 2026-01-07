@@ -25,6 +25,15 @@
     cursor: pointer;
 }
 
+.guest {
+    width: 500px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+
 .buttons {
     display: flex;
     justify-content: space-evenly;

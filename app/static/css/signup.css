@@ -7,7 +7,7 @@
 .box {
     display: flex;
     background-color: darkgray;
-    width: 30%;
+    width: 40%;
     border-radius: 50px;
     height: 30%;
     align-items: center;
