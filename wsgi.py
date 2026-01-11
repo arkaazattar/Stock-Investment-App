@@ -1,11 +1,16 @@
 from flask import Flask
 from flask_session import Session
 from datetime import timedelta
+import os
+from dotenv import load_dotenv
 from app.routes.routes import home_routing
 from app.routes.dashboard_route import dashboard_routing
 from app.routes.auth_routes import signup_route, login_route, login_and_signup_route
 
+load_dotenv()
+
 app = Flask(__name__, template_folder="app/templates", static_folder="app/static")
+app.secret_key = os.getenv("SECRET_KEY")
 
 app.config.update (
     SESSION_TYPE = "filesystem",

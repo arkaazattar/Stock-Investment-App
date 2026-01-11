@@ -1,6 +1,6 @@
 # all of these will be split into routing folders where only the functions are required
 # each file needs the render_template import at minimum
-from flask import render_template, request, session, redirect
+from flask import render_template, request, session, redirect, url_for
 from azure.SQLDB.users import user_exists, user_pwd_matches
 
 def login_and_signup_route():
@@ -24,20 +24,35 @@ def login_route():
     otherwise if 
 
     """
+    
+    #tests to be removed once everything works
+
     if not session.get("username"):
+        # print("Stayed on login\n") #DELETE BEFORE COMITTING
+        # print(f"New request method after submit: {request.method}")
         if request.method == "POST":
+            # print("Switched to POST")
             session["username"] = request.form.get("username")
+            # print("\nStored session username succesfully")
             if user_exists(session["username"]):
                 if user_pwd_matches(session["username"], request.form.get("password")):
-                    session.permanent = True
-                    return redirect("auth/login/wrongpassword")
+                    if request.form.get("rememberme"):
+                        session.permanent = True
+                        # print("Correct credentials")
+                    return render_template("getstarted.html")
                 else:
+                    session.pop("username")
+                    # print("Password mismatch")
                     return redirect("auth/login/wrongpassword")
             else:
+                # print("user doesn't exist yet")
                 session.pop("username")
                 return redirect("auth/login/promptsignup")
-            return render_template("auth/login/login.html")
-    return redirect("dashboard.html")
+        else:
+            # print("Initial form GET")
+            return render_template("auth/login/login.html") 
+    # print("User alr existed") #DELETE BEFORE COMITTING
+    return render_template("getstarted.html")
 
 
 
