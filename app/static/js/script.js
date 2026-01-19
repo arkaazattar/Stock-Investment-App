@@ -1,13 +1,13 @@
-    const dashboard = document.getElementById("dashboard");
+    const loginsignup= document.getElementById("login_and_signup");
     const getstarted = document.getElementById("getstarted");
 
-    dashboard.addEventListener("click", async function(event){
+    loginsignup.addEventListener("click", async function(event){
         event.preventDefault();
-        window.location.href = "/dashboard";
+        window.location.href = "/login_and_signup";
         
     })
 
     getstarted.addEventListener("click", async function(event){
         event.preventDefault();
-        window.location.href="/loginsignup"
+        window.location.href="/getstarted"
     })
