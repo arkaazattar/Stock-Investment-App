@@ -3,9 +3,9 @@ from flask_session import Session
 from datetime import timedelta
 import os
 from dotenv import load_dotenv
-from app.routes.routes import home_routing
-from app.routes.dashboard_route import dashboard_routing
-from app.routes.auth_routes import signup_route, login_route, login_and_signup_route
+from app.routes.home import home_routing_bp
+from app.routes.dashboard_route import dashboard_route_bp
+from app.routes.auth_routes import login_and_signup_bp, signup_route_bp, login_route_bp
 
 load_dotenv("secretkey.env")
 
@@ -20,26 +20,11 @@ app.config.update (
 )
 Session(app)
 
-@app.route('/')
-def home():
-    return home_routing()
-
-@app.route("/login_and_signup")
-def login_and_signup():
-    return login_and_signup_route()
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    return login_route()
-
-
-@app.route("/signup", methods=["GET", "POST"])
-def signup():
-    return signup_route()
-
-@app.route('/dashboard')
-def dashboard():
-    return dashboard_routing()
+app.register_blueprint(home_routing_bp)
+app.register_blueprint(login_and_signup_bp)
+app.register_blueprint(login_route_bp)
+app.register_blueprint(signup_route_bp)
+app.register_blueprint(dashboard_route_bp)
 
 if __name__ == "__main__":
     app.run()

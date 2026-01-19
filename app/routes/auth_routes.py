@@ -1,11 +1,18 @@
 # all of these will be split into routing folders where only the functions are required
 # each file needs the render_template import at minimum
-from flask import render_template, request, session, redirect
+from flask import render_template, request, session, redirect, Blueprint
 from azure_cloud.SQLDB.users import user_exists, user_pwd_matches, user_signup
 
+login_and_signup_bp = Blueprint("login_and_signup", __name__)
+signup_route_bp = Blueprint("signup_route", __name__)
+login_route_bp = Blueprint("login_route", __name__)
+
+
+@login_and_signup_bp.route("/login_and_signup")
 def login_and_signup_route():
     return render_template("auth/login_and_signup.html")
 
+@signup_route_bp.route("/signup", methods=["GET", "POST"])
 def signup_route():
     """
     First Check:
@@ -36,6 +43,7 @@ def signup_route():
             return render_template("auth/signup/signup.html")
     return render_template("getstarted.html")
 
+@login_route_bp.route("/login", methods=["GET", "POST"])
 def login_route():
     """
     First Check:
