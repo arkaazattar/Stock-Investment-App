@@ -21,9 +21,8 @@ def user_exists(username: str) -> bool:
 
 def user_pwd_matches(username: str, password: str) -> bool:
     """
-    returns 0 if provided password hashed matches the hashed password attributed to the provided username in dbo.users
-    returns 1 if provided password does not match
-    returns -1 if verification fails for another reason
+    returns true if provided password hashed matches the hashed password attributed to the provided username in dbo.users
+    returns false if provided password does not match or if verification fails for another reason
     """
     sql = '''
     SELECT password_hash FROM dbo.users WHERE username = ?
@@ -50,8 +49,8 @@ def user_pwd_matches(username: str, password: str) -> bool:
 
 def user_signup (username: str, password: str) -> bool:
     """
-    returns true if succesfully signs up user
-    false if there is some kind of DB error
+    returns true if succesfully signs up user through INSERT INTO
+    false if there is some kind of DB error attempting to INSERT INTO
     """
     sql = '''
     INSERT INTO dbo.users (username, password_hash) VALUES (?, ?)
@@ -61,6 +60,7 @@ def user_signup (username: str, password: str) -> bool:
     ph = PasswordHasher()
     try:
         cursor.execute(sql, (username, ph.hash(password)))
+        conn.commit()
         return True
     except Exception:
         return False

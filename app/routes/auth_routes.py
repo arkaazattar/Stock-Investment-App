@@ -7,6 +7,19 @@ def login_and_signup_route():
     return render_template("auth/login_and_signup.html")
 
 def signup_route():
+    """
+    First Check:
+    if session dict has name key means user alr signed in so just sent straight to dashboard
+    otherwise session dict has falsey name key value pair login process as normal
+
+    Second Check:
+    if method is POST means that user pressed submit on form
+    otherwise method is GET so just displays signup page for user to fill in fields
+
+    Third Check:
+    if username exists in DB alr sent to sign in otherwise user_signup is attempted and if error then just reloads page
+
+    """
     if not session.get("username"):
         if request.method == "POST":
             session["username"] = request.form.get("username")
@@ -17,9 +30,10 @@ def signup_route():
                 if user_signup(session["username"], request.form.get("password")):
                     return render_template("getstarted.html")
                 else:
+                    session.pop("username")
                     render_template("auth/signup/signup.html")
         else:
-            return render_template("auth/signup/signup.html") 
+            return render_template("auth/signup/signup.html")
     return render_template("getstarted.html")
 
 def login_route():
@@ -33,11 +47,10 @@ def login_route():
     otherwise method is GET so just displays login page for user to fill in fields
 
     Third Check:
-    if username's password hashed matches what's in db sent through to dashboard
-    otherwise if 
+    if username exists in DB then proceed to check if username's password hashed matches what's in DB to be sent through to dashboard
+    otherwise if username doesn't exist in DB or password hash doesn't match sent to promptsignup and wrongpassword respectively
 
     """
-
     if not session.get("username"):
         if request.method == "POST":
             session["username"] = request.form.get("username")
