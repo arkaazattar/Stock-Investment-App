@@ -33,7 +33,7 @@ def login():
     return login_route()
 
 
-@app.route("/signup")
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
     return signup_route()
 

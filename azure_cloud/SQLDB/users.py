@@ -11,6 +11,7 @@ def user_exists(username: str) -> bool:
     SELECT username FROM dbo.users WHERE username = ?
     '''
     conn = get_connection()
+    #print("\n\n\nTHIS WORKS\n\n\n")
     cursor = conn.cursor()
     cursor.execute(sql, (username,))
     row = cursor.fetchone()
@@ -18,7 +19,7 @@ def user_exists(username: str) -> bool:
         return False
     return True
 
-def user_pwd_matches(username: str, password: str) -> int:
+def user_pwd_matches(username: str, password: str) -> bool:
     """
     returns 0 if provided password hashed matches the hashed password attributed to the provided username in dbo.users
     returns 1 if provided password does not match
@@ -47,9 +48,22 @@ def user_pwd_matches(username: str, password: str) -> int:
     #     return 
     
 
-    
+def user_signup (username: str, password: str) -> bool:
+    """
+    returns true if succesfully signs up user
+    false if there is some kind of DB error
+    """
+    sql = '''
+    INSERT INTO dbo.users (username, password_hash) VALUES (?, ?)
+    '''
+    conn = get_connection()
+    cursor = conn.cursor()
+    ph = PasswordHasher()
+    try:
+        cursor.execute(sql, (username, ph.hash(password)))
+        return True
+    except Exception:
+        return False
 
-
-#queries to be implemented
 
 #panda data frame processing to be implemented here

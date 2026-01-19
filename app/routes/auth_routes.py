@@ -1,13 +1,26 @@
 # all of these will be split into routing folders where only the functions are required
 # each file needs the render_template import at minimum
 from flask import render_template, request, session, redirect
-from azure_cloud.SQLDB.users import user_exists, user_pwd_matches
+from azure_cloud.SQLDB.users import user_exists, user_pwd_matches, user_signup
 
 def login_and_signup_route():
     return render_template("auth/login_and_signup.html")
 
 def signup_route():
-    return render_template("auth/signup/signup.html")
+    if not session.get("username"):
+        if request.method == "POST":
+            session["username"] = request.form.get("username")
+            if user_exists(session["username"]):
+                session.pop("username")
+                return redirect("auth/login/promptlogin")
+            else:
+                if user_signup(session["username"], request.form.get("password")):
+                    return render_template("getstarted.html")
+                else:
+                    render_template("auth/signup/signup.html")
+        else:
+            return render_template("auth/signup/signup.html") 
+    return render_template("getstarted.html")
 
 def login_route():
     """
@@ -24,30 +37,24 @@ def login_route():
     otherwise if 
 
     """
-    
-    #tests to be removed once everything works
 
     if not session.get("username"):
         if request.method == "POST":
             session["username"] = request.form.get("username")
             if user_exists(session["username"]):
-                print("\n\nGOT HERE\n\n")
                 if user_pwd_matches(session["username"], request.form.get("password")):
                     if request.form.get("rememberme"):
                         session.permanent = True
-                        # print("Correct credentials")
                     return render_template("getstarted.html")
                 else:
                     session.pop("username")
                     print("Password mismatch")
                     return redirect("auth/login/wrongpassword")
             else:
-                # print("user doesn't exist yet")
                 session.pop("username")
                 return redirect("auth/login/promptsignup")
         else:
             return render_template("auth/login/login.html") 
-    # print("User alr existed") #DELETE BEFORE COMITTING
     return render_template("getstarted.html")
 
 
