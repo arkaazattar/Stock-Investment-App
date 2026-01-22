@@ -4,6 +4,8 @@ from flask import render_template, request, session, redirect
 from azure_cloud.SQLDB.users import user_exists, user_pwd_matches, user_signup
 
 def login_and_signup_route():
+    if request.form.get("isGuest"):
+        return render_template("getstarted.html")
     return render_template("auth/login_and_signup.html")
 
 def signup_route():
