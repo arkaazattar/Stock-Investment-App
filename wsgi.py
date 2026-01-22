@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from app.routes.home import home_routing_bp
 from app.routes.dashboard_route import dashboard_route_bp
 from app.routes.auth_routes import login_and_signup_bp, signup_route_bp, login_route_bp
+from app.routes.user import user_bp
 
 load_dotenv("secretkey.env")
 
@@ -25,6 +26,9 @@ app.register_blueprint(login_and_signup_bp)
 app.register_blueprint(login_route_bp)
 app.register_blueprint(signup_route_bp)
 app.register_blueprint(dashboard_route_bp)
+
+# data
+app.register_blueprint(user_bp)
 
 if __name__ == "__main__":
     app.run()

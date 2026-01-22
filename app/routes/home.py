@@ -1,6 +1,8 @@
-from flask import render_template, Blueprint
+from flask import Blueprint
 home_routing_bp = Blueprint('/', __name__)
 
-@home_routing_bp.route('/')
+@home_routing_bp.route('/homepage')
 def home_routing():
-    return render_template("index.html")
+    return {
+        'home_page' : True
+    }
