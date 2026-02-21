@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './Header.css'
+import logo from '../assets/cropped_logo.png'
 
 function Header() {
   // this will end up changing once the flask routes work
@@ -9,8 +10,9 @@ function Header() {
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <Link to="/" className="site-logo">
-          StockAdvice
+        <Link to="/" className="site-brand">
+          <img src={logo} alt="StockAdvice logo" className="site-brand-logo" />
+          <span className="site-logo">StockAdvice</span>
         </Link>
 
         { userStatus === "Guest" && 
