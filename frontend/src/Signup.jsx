@@ -8,11 +8,14 @@ function Signup() {
         }
 
     return(
-        <form onSubmit={handleFormSubmit}>
-            <p>Signup</p>
-            <input placeholder='Username'/> <br/>
-            <input type="password" placeholder='Password'/> 
-        </form>
+        <div className="signupbody">
+            <form onSubmit={handleFormSubmit}>
+                <p>Signup</p>
+                <input placeholder='Username'/>
+                <input type="password" placeholder='Password'/>
+                <button>Submit</button>
+            </form>
+        </div>
     )
 
 }

@@ -35,7 +35,7 @@ function Home() {
   }
 
   return (
-  <div>
+  <div className='home-page'>
         
         <div className='Content'>
 

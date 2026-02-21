@@ -11,12 +11,14 @@ function Login() {
     }
     
     return(
-        <form onSubmit={handleFormSubmit}>
-            <p>Login</p>
-            <input required placeholder='Username'/> <br/>
-            <input required type="password" placeholder='Password'/> <br/>
-            <button>Submit</button>
-        </form>
+        <div className="loginbody">
+            <form onSubmit={handleFormSubmit}>
+                <p>Login</p>
+                <input required placeholder='Username'/>
+                <input required type="password" placeholder='Password'/>
+                <button>Submit</button>
+            </form>
+        </div>
     )
 }
 
