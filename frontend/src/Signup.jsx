@@ -8,13 +8,13 @@ function Signup() {
         }
 
     return(
+        <div className="homebody">
         <div className="signupbody">
-            <form onSubmit={handleFormSubmit}>
-                <p>Signup</p>
-                <input placeholder='Username'/>
-                <input type="password" placeholder='Password'/>
-                <button>Submit</button>
-            </form>
+            <p>Signup</p>
+            <input placeholder='Username'/>
+            <input type="password" placeholder='Password'/>
+            <button>Submit</button>
+        </div>
         </div>
     )
 

@@ -1,4 +1,5 @@
 import './Login.css'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 function Login() {
@@ -13,12 +14,13 @@ function Login() {
         <div className="loginbody">
 
             <div className="loginLeft">
-                <h1>Welcome to</h1>
-                <h1>STOCKAPP</h1>
-                <p>Unlock Professional Market Insights</p>
-
-                <button>Sign In</button>
-                <button>Create New Account</button>
+                <div className="loginLeftText">
+                    <h1>Welcome to</h1>
+                    <h1>STOCKAPP</h1>
+                </div>
+                    <p>Unlock Professional Market Insights</p>
+                    <button>Sign In</button>
+                    <button>Create New Account</button>
             </div>
 
             <div className="loginRight">
@@ -26,7 +28,7 @@ function Login() {
                 <form onSubmit={handleFormSubmit}>
                     <input required placeholder='Enter Email'/>
                     <input required type="password" placeholder='Password'/>
-                    <p>Fogot Password?</p>
+                    <Link to="/forgotpassword">Forgot Password?</Link>
                     <button>Sign In</button>
                 </form>
             </div>

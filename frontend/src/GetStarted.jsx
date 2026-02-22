@@ -4,20 +4,13 @@ import background from "./assets/background.png"
 import aboutImage from "./assets/triet.jpg"
 import newsImage from "./assets/triet2.png"
 import exploreImage from "./assets/triet3.png"
-import './Home.css'
+import './GetStarted.css'
 
-function Home() {
-  const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const navigate = useNavigate();
-  
-  const handleLogin = (e) => {
-    navigate("/login")
-  }
-
-  const handleSignup = (e) => {
-    navigate("/signup")
-  }
+function GetStarted() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [question1, setQuestion1] = useState(false);
+  const [question2, setQuestion2] = useState(false);
 
   useEffect(() => {
     fetch('/user')
@@ -28,6 +21,19 @@ function Home() {
       })
   }, []
   )
+  
+  const handleQuestion1 = (e) =>{
+    setQuestion1(!question1)
+  }
+
+  const handleQuestion2 = (e) =>{
+    setQuestion2(!question2)
+  }
+
+
+
+
+
   if (loading){
     return(
       <p>Loading...</p>
@@ -82,10 +88,21 @@ function Home() {
         <h2>Frequently Asked Questions</h2>
 
         <div className="buttons">
-          <button>Question 1</button> 
-          <button>Question 2</button>
+          <button onClick={handleQuestion1}>Question 1</button>
+          {question1 &&
+            <div> 
+              <p>Question 1 answer</p>
+            </div>
+          }
+
+          <button onClick={handleQuestion2}>Question 2</button>
+          {question2 &&
+            <div> 
+              <p>Question 2 answer</p>
+            </div>
+          }
         </div>
   </div>
     )
 }  
-export default Home;
+export default GetStarted;

@@ -1,12 +1,16 @@
 .loginbody {
     display: flex;
     flex-direction: row;
-    gap: 0;
+    height: 100vh;
 }
 
-.loginLeft, loginRight {
-    width: 680px;
-    height: 580px;
+.loginLeft {
+    width: 50%;
+    color: black;
+}
+
+.loginRight {
+    width: 50%;
     color: black;
 }
 
@@ -20,6 +24,11 @@
     gap:15px;
 }
 
+.loginLeftText{
+    gap: 0px;
+    margin: 0px;
+}
+
 .loginRight{
     color: black;
     background: rgb(230, 230, 230);
@@ -31,6 +40,13 @@
     gap:15px;
 }
 
+.loginRight input{
+    background-color: white;
+    color: black;
+    border-color: transparent;
+    border-radius: 5px;
+}
+
 .loginbody form {
     display: flex;
     gap: 10px;
@@ -38,13 +54,6 @@
     text-align: center;
     width: 680px;
     height: 580px;
-}
-
-.loginbody form p{
-    color: black;
-    font-size: 22px;
-    font-weight: 600;
-    text-align: center;
 }
 
 .loginbody form button{
