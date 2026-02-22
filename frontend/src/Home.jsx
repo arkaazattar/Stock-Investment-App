@@ -40,7 +40,7 @@ function Home() {
         <div className='Content'>
 
           <div className='FutureText'> 
-            <p>The Future of Investing</p>
+            <h2>The Future of Investing</h2>
           </div>
           <h1>Secure Your Financial Future Trade Like an Institutional Pro</h1>
           <button>Get Started</button>
@@ -79,9 +79,7 @@ function Home() {
           </div>
         </div>
 
-
         <h2>Frequently Asked Questions</h2>
-
 
         <div className="buttons">
           <button>Question 1</button> 
